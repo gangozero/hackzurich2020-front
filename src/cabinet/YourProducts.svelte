@@ -21,16 +21,16 @@
 <Table>
     <Tbody>
         {#if products}
-        {#each products as product(product.id)}
-        <tr>
-            <td class="name">   
-                {product.name}
-            </td>
-            <td align="right">
-                <IconButton icon="trash" on:click={()=>item=product.id}/>
-            </td>
-        </tr>
-        {/each}
+            {#each products as product(product.id)}
+            <tr>
+                <td class="name">   
+                    {product.name}
+                </td>
+                <td align="right">
+                    <IconButton icon="trash" on:click={()=>item=product.id}/>
+                </td>
+            </tr>
+            {/each}
         {:else}
             <Loader>Loading...</Loader>
         {/if}
