@@ -4,7 +4,7 @@
     import {api} from './lib/api.js';
     import {user} from './lib/userStore.js'
 
-    let email = '';
+    let email = 'me@repa40x.com';
     let password = '';
 
     let errEmail = null;

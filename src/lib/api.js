@@ -1,3 +1,10 @@
+import {user} from './userStore';
+
+let $user = null;
+user.subscribe(v => {
+    $user = v;
+});
+
 const APIURL = 'https://hackzurich2020-be.azurewebsites.net/api/v1';
 
 export const api = {
@@ -9,9 +16,14 @@ export const api = {
 }
 
 async function apiRequest(endpoint,method="GET",data={}){
+    
+    let headers = {};
+    headers['Content-Type'] = 'application/json';
+    if($user) headers['Authorization'] = $user;
+
     const res = await fetch(`${APIURL}${endpoint}`,{
         method,
-        headers: {'Content-Type': 'application/json'},
+        headers,
         body: (method !== 'GET') ? JSON.stringify(data) : undefined
     });
 
