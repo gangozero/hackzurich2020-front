@@ -1,16 +1,17 @@
 <script>
-    
     import Tabs from './Tabs.svelte';
+    import YourProducts from './YourProducts.svelte';
+    import RecipesMatches from './RecipesMatches.svelte';
     let tab = 1;
 </script>
 
 <div>
     {#if tab === 1}
-    Хуй1
+    <YourProducts/>
     {/if}
 
     {#if tab === 2}
-    Хуй2
+    <RecipesMatches/>
     {/if}
 </div>
 

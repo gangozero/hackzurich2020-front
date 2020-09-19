@@ -4,7 +4,7 @@
 
 <div class="tabs">
         <div class="tab" on:click={()=>tab=1} class:active={tab===1}>Your <br/> Products</div>
-        <div class="tab" on:click={()=>tab=2} class:active={tab===2}>Reciptes <br/> Matches</div>
+        <div class="tab" on:click={()=>tab=2} class:active={tab===2}>Recipes <br/> Matches</div>
 </div>
 
 <style>
