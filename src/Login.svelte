@@ -1,5 +1,8 @@
 <script>
-    import {Input,Button,Block} from 'svelte-atoms';
+    import {Input,Button,Block,sendNotification} from 'svelte-atoms';
+    import {router} from 'tinro';
+    import {api} from './lib/api.js';
+    import {user} from './lib/userStore.js'
 
     let email = '';
     let password = '';
@@ -9,8 +12,17 @@
 
     let loading = false;
 
-    function doLogin(){
+    async function doLogin(){
         loading = true;
+        let result  = await api.post('/login',{email});
+        loading = false;
+        if(result.token) {
+            user.set(result.token);
+            router.goto('/cabinet');
+        }else{
+            errEmail = "Wrong E-Mail!";
+            sendNotification(errEmail,{status:'negative'});
+        }
     }
 </script>
 

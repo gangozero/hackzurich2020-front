@@ -1,6 +1,6 @@
 <script>
 	import {Route,router} from 'tinro';
-	import {Variables,Container,Block} from "svelte-atoms";
+	import {Variables,Notifications,Container,Block} from "svelte-atoms";
 	import {user} from './lib/userStore.js'
 
 	import Login from './Login.svelte';
@@ -16,3 +16,5 @@
 		<Route path="/login"><Login/></Route>
 		<Route path="/cabinet"><Cabinet/></Route>
 </Container>
+
+<Notifications />
