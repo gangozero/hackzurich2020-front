@@ -1,5 +1,5 @@
 <script>
-    import {Input,Typography,Button,Block} from 'svelte-atoms';
+    import {Input,Button,Block} from 'svelte-atoms';
 
     let email = '';
     let password = '';
@@ -15,7 +15,7 @@
 </script>
 
 <Block type="block1">
-    <Typography type="title" block>Please login</Typography>
+    <h2>Please login</h2>
     <p><Input title="E-Mail" bind:value={email} size="big" error={errEmail}/></p>
     <p><Input title="Password" bind:value={password} size="big" type="password"  error={errPassword}/></p>
 
