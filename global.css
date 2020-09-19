@@ -1,0 +1,22 @@
+*{ margin: 0; padding: 0}
+
+body{
+	font-family: var(--preferred-font);
+    font-stretch: normal;
+    font-style: normal;
+	letter-spacing: normal;
+	color: var(--palette-main-1);
+}
+
+h1,h2,h3,h4,h5{
+	margin: 20px 0;
+	font-weight: 300;
+}
+
+p{
+	margin: 20px 0;
+}
+
+.text-center{
+	text-align: center;
+}
