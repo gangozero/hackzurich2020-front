@@ -35,7 +35,7 @@
 
     <div class="buttons">
         <div><Button iconLeft="chevron-left" status="negative" on:click={()=>router.goto('/cabinet')}>Not now</Button></div>
-        <div><Button iconRight="chevron-right" >Invite</Button></div>
+        <div><Button iconRight="chevron-right" >Meet & Cook</Button></div>
     </div>
 
 </Block>
