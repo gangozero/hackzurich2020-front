@@ -19,12 +19,12 @@ async function apiRequest(endpoint,method="GET",data={}){
     
     let headers = {};
     headers['Content-Type'] = 'application/json';
-    if($user) headers['Authorization'] = $user;
+    if($user) headers['Authorization'] = `Bearer ${$user}`;
 
     const res = await fetch(`${APIURL}${endpoint}`,{
         method,
         headers,
-        body: (method !== 'GET') ? JSON.stringify(data) : undefined
+        body: (method !== 'GET' && method !== 'DELETE') ? JSON.stringify(data) : undefined
     });
 
     if(!res.ok) return {error:404,message: 'not found'};

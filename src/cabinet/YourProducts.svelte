@@ -1,27 +1,49 @@
 <script>
-    import {Table,Tbody,IconButton} from 'svelte-atoms';
+    import {onMount} from 'svelte';
+    import {Table,Tbody,IconButton,Loader,Popup,Button} from 'svelte-atoms';
 
-    let products = [
-        {id: 1, name: 'Sausage'},
-        {id: 2, name: 'Tomato'},
-        {id: 3, name: 'Milk'}
-    ]
+    import {api} from './../lib/api.js';
+
+
+    let products;
+    onMount(async _=>{
+        products = await api.get('/product');
+    });
+
+    let item = null;
+
+    async function deleteItem(id){
+        products = products.filter(p=>p.id!==id);
+        api.delete(`/product/${id}`);
+    }
 </script>
 
 <Table>
     <Tbody>
-        {#each products as product}
+        {#if products}
+        {#each products as product(product.id)}
         <tr>
             <td class="name">   
                 {product.name}
             </td>
             <td align="right">
-                <IconButton icon="trash" />
+                <IconButton icon="trash" on:click={()=>item=product.id}/>
             </td>
         </tr>
         {/each}
+        {:else}
+            <Loader>Loading...</Loader>
+        {/if}
     </Tbody>
 </Table>
+
+<Popup isOpen={!!item} on:close={()=>item=null} header="Delete product">
+    Are you sure?
+    <div slot="footer">
+        <Button on:click={()=>item=null} type="empty" >Cancel</Button>
+        <Button on:click={()=>{deleteItem(item); item=null}}>Yes</Button>
+    </div>
+</Popup>
 
 <style>
     .name{
