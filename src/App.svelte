@@ -14,12 +14,10 @@
 
 <Variables />
 
-<div style="max-width: 500px; margin-left: auto; margin-right: auto">
 <Container>
 		<Route path="/login"><Login/></Route>
 		<Route path="/cabinet"><Cabinet/></Route>
 		<Route path="/match/:id"><Match/></Route>
 </Container>
-</div>
 
 <Notifications />
