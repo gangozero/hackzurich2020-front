@@ -14,7 +14,7 @@
     .tab{
         text-align: center;
         font-size: 20px;
-        font-weight: 300;
+        font-weight: 600;
         padding: 5px;
         background-color:var(--pallete-main-4);
         flex-grow: 1;
