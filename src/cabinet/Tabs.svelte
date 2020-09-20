@@ -13,8 +13,8 @@
     }
     .tab{
         text-align: center;
-        font-size: 18px;
-        font-weight: 100;
+        font-size: 20px;
+        font-weight: 300;
         padding: 5px;
         background-color:var(--pallete-main-4);
         flex-grow: 1;
