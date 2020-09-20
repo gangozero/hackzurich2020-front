@@ -17,7 +17,7 @@ onMount(async _ => {
         {#if matches}
             {#each matches as match}
             <tr>
-                <td class="name" class:full={match.isFull} on:click={()=>router.goto('/match/'+match.id)}>   
+                <td class="name" class:full={match.isFull} on:click={()=>router.goto(match.state == 'ACCEPTED' ? '/match/'+match.id+'/chat' : '/match/'+match.id)}>   
                     {match.name}
                 </td>
                 <td class:full={match.isFull} align="right">   
